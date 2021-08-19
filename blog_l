@@ -1,0 +1,571 @@
+\c postgres
+CREATE DATABASE test with owner kylych;
+\l
+drop database my_db;
+drop database test;
+\l
+\l
+drop database my_db;
+\c postgres;
+drop database my_db;
+\c kylych
+\c my_db
+creat type language as enum ('python','javascript');
+create type language as enum ('python','javascript');
+create table info(
+id serial primary key,
+name varchar(50) not null,
+country varchar(60),
+email varchar(50) unique,
+age int,
+programing_language language not null,
+experience int);
+\d my_db;
+\d info;
+insert into (name,last_name,country,email,age,programing_language,experience) values ('john','snov','Kyrgystan','johnsnov@gmail.com',34,'python',3);
+insert into info (name,last_name,country,email,age,programing_language,experience) values ('john','snov','Kyrgystan','johnsnov@gmail.com',34,'python',3);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('john','snov','Kyrgystan','johnsnov@gmail.com',34,'python',3);
+\d info
+alter table info (last_name)
+alter table info(last_name);
+\d info
+alter table info add origin varchar(100) not null'last_name';
+alter table info add origin varchar(100) not null 'last_name';
+alter table info add origin varchar(100) not null "last_name";
+alter table info add origin varchar(100) not null (last_name);
+alter table info add origin varchar(100) not null (last_name);
+alter table info add origin varchar(100) 'last_name' not null;
+alter table info add last_name varchar(100) not null;
+\d info
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('john','snov','Kyrgystan','johnsnov@gmail.com',34,'python',3);
+\d info
+select * from info
+select * from info;
+select * from info;
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('kyla','joldubaev','Kyrgystan','johnsnov@gmail.com',24,'python',10);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('kyla','joldubaev','russia','joldubav@gmail.com',24,'python',10);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('jyrgal','mask','usa','jm@gmail.com',25,'python',5);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('ilon','mask','usa','ilonm@gmail.com',40,'javascript',12);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('barak','abama','mongolia','barak@gmail.com',48,'javascript',9);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('burak','orhan','turkey','burak@gmail.com',18,'javascript',6);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('selena','petrovna','kazakstan','selena@gmail.com',28,'javascript',7);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('roza','amanova','aljir','roaz@gmail.com',38,'javascript',7);
+select * from info;
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('roza','otunbaeva','china','otunbaeva@gmail.com',38,'javascript',6);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('steven','uluu','chili','uluu@gmail.com',27,'javascript',8);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('emily','klark','norwey','emily@gmail.com',22,'python',8);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('gary','klark','afgnistan','gary@gmail.com',22,'python',8);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('acel','klark','monaka','acel@gmail.com',21,'python',1);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('tomson','chan','korea','tomson@gmail.com',21,'python',7);
+select *from info;
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('timati','frank','mexico','timati@gmail.com',33,'python',4);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('ed','shiran','uk','ed@gmail.com',30,'python',6);
+select * from info;
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('saule','ismailova','sweden','saule@gmail.com',24,'python',9);
+select * from info;
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('lev','tolstoi','uar','lev@gmail.com',60,'javascript',20);
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('elena','ivannova','kongo','elena@gmail.com',48,'javascript',2);
+select * from info;
+insert into info (name, last_name,country,email,age,programing_language,experience) values ('aleksei','boroda','belarus','aleksei@gmail.com',50,'javascript',11);
+select * from info;
+\dt
+select name from info;
+select * from info;
+select name,last_name,email from info;
+select programing_langauge from info;
+select name || last_name from info;
+select name ||' '|| last_name from info;
+select name ||' '|| last_name as full_name  from info;
+select name ||' '|| last_name as "full name"  from info;
+select name ||' '|| last_name  "full name"  from info;
+select name ||' '|| last_name  "full name" email  from info;
+select name ||' '|| last_name  "full name" ,email  from info;
+select name,last_name as surname from info;
+select name as n,last_name as l_n from info;
+select * from info;
+select * from info order by last_name;
+select * from info order by id;
+select * from info order by id desc;
+select * from info order by id desc;
+insert into (name,country,programing_langauge,email,expirience) values ('cathrina','england','javasrcript','cat@yohoo,com'2);\
+insert into info(name,country,programing_langauge,email,expirience) values ('cathrina','england','javasrcript','cat@yohoo,com'2);
+insert into info(name,country,programing_langauge,email,expirience) values ('cathrina','england','javasrcript','cat@yohoo,com',2);
+\d info
+insert into info(name,country,programing_language,email,expirience) values ('cathrina','england','javasrcript','cat@yohoo,com',2);
+\d info
+insert into info(name,country,programing_language,email,experience) values ('cathrina','england','javasrcript','cat@yohoo,com',2);
+insert into info(name,country,programing_language,email,experience) values ('cathrina','england','javascript','cat@yohoo,com',2);
+insert into info(name,last_name,country,programing_language,email,experience) values ('cathrina','as','england','javascript','cat@yohoo,com',2);
+select * from info
+;
+select * from info order by age nulls first;
+select  distinct country from info;
+select  distinct age from info;
+select  distinct on (country)country,last_name from info order by country,last_name;
+select * from where country='usa';
+select * from info where country='usa';
+select * from info where age>20;
+select * from info where age<20;
+select * from info where experience>=5;
+select name ||' '|| last_name as "full name" from info where experience>=5;
+select name ||' '|| last_name as "full name", experience from info where experience>=5;
+select name,last_name,email from info where name<>'kyla';
+select name,last_name,email from info where last_name<>'shiran';
+select name,last_name,email from info where last_name<>'shiran'and name<>'kyla';
+select name,last_name,email from info where last_name='john'or last_name='obama';
+select name,last_name,email from info where last_name='jhon'or last_name='obama';
+select name,last_name,email from info where last_name='jhon'or last_name='tolstoi';
+select name,last_name,email from info where not  last_name='tolstoi';
+select name,last_name,country from info where not  country in ('usa','kongo','sweden');
+select name,last_name,country from info where   country in ('usa','kongo','sweden');
+select *from info age between 20 and 50 ;
+select *from info where age between 20 and 50 ;
+select *from info where (age between 20 and 50) and(experiene between 5 and 10) ;
+select *from info where (age between 20 and 50) and (experience between 5 and 10) ;
+select * from info where like 'a%';
+select * from info where name like 'a%';
+select * from info where email like '%com';
+select * from info where name like '%ai%';
+select * from info where name like '%a%';
+select * from info where name like '%ar%';
+select * from info where last_name like '%b%';
+select * from info where last_name like 'cha_';
+select * from info where last_name like '%m'or name like '%m';
+select * from info where last_name like '___n'or name like '%r';
+select * from info where last_name like 'A%';
+select * from info where last_name ilike 'A%';
+select * from info where age is null;
+select * from info limit 10;
+select * from info order by id limit 10;
+select * from info order by experience desc limit 10;
+select * from info order by experience desc limit 10 offset 4;
+select * from info order by experience desc fetch first row only;
+select * from info order by experience desc fetch first(5) row only;
+select * from info order by experience desc offset 4 fetch first(5) row only;
+select sum(age) as age_sum from info where country='usa'
+select sum(age) as age_sum from info where country='usa';
+select sum(age) as age_sum from info where country='usa';
+select sum(age) as age_sum from info;
+select count(id) from info where email like '%yahoo.com'; 
+select count(id) from info where email like '%.com'; 
+select count(id) from info ; 
+select avg(experience) from info;
+select avg(experience) from info where country='usa';
+select name,experience from info where country ='usa';
+select max(age),name from info;
+select discnt age,name from info;
+select distinct age,name from info;
+select max(age) from info;
+select country,count(id) from info group by country;
+select country,count(id) from info group by country;
+select country ,sum(experience) from info group by country;
+select country ,avg(age) form info group by country;
+select country ,avg(age) from info group by country;
+select programing_language ,avg(experience) from info group by programing_language having avg(experience)>2;
+select programing_language ,avg(experience) from info group by programing_language having avg(experience)>7;
+select country, avg(experience) from info  group by having avg(experience)>=2;
+select country, avg(experience) from info  group by country having avg(experience)>=2;
+select * from info;
+update info set last_name='snow',country='usa' where id =21;
+select * from info;
+delete from info where id =21;
+select * from info;
+delete from info where is null;
+delete from info where age is null;
+\d info
+alter table info alter column name type varchar(80);
+\d info
+alter table info rename column last_name to surname;
+\d info
+alter table info add constraint name_of_constranint unique (name);
+select name from info;
+select * from info;
+delete from info where id=9;
+alter table info add constraint name_of_constranint unique (name);
+select * from info;
+\d info
+alter table info drop age;
+\d info
+select * from info;
+create database shop_db;
+\l
+\c shop_db
+create table users(
+id serial primary key ,
+name varchar (50),
+last_name(100));
+create table users(
+id serial primary key ,
+name varchar (50),
+last_name varchar(100));
+\d users
+create table email(
+user_id int,
+email varchar(60),
+constraint email_unique unique (user_id));
+\d email
+alter table email add constraint fk_email_users foreign key(user_id)references users(id);
+\d email
+create table product(
+id serial primary key,
+title varchar(150),
+price int,
+quantity int default 1);
+\d product
+create table order(
+id serial primary key,
+user_id int,
+address varchar(255),
+constraint fk_order_users foreign key (user_id)references users(id);
+);
+create table orders(
+id serial primary key,
+user_id int,
+address varchar(255),
+constraint fk_order_users foreign key (user_id)references users(id)
+);
+\d orders
+create table order_product(
+product_id int not null,
+order_id int not null,
+constraint fk_order_product_product foreign key(product_id)references product(id),constraint fk_order_product_order foreign key(order_id) references orders(id);
+)
+);
+create table order_product(
+product_id int not null,
+order_id int not null,
+constraint fk_order_product_product foreign key(product_id)references product(id),constraint fk_order_product_order foreign key(order_id) references orders(id)
+);
+\d order_product
+insert into users (name,last_name) values ('John','Snow');
+insert into users (name,last_name) values ('Emily','Brown');
+insert into users (name,last_name) values ('Amanda','White');
+insert into users (name,last_name) values ('Bob','Baker');
+select*from users;
+insert into email(user_id,email) values(1,'john@gmail.com');
+insert into email(user_id,email) values(2,'emily@yahoo.com');
+insert into email(user_id,email) values(4,'bob@gmail.com');
+select*from email;
+select users.id,users.name,users.last_name,email.email from users inner join email on users.id=email.users_id;
+select users.id, users.name, users.last_name, email.email from users inner join email on users.id=email.user_id;
+select u.id, u.name, u.last_name, e.email, from users as u inner join email as e on u.id=e.user_id;
+select u.id, u.name, u.last_name, e.email from users as u inner join email as e on u.id=e.user_id;
+select u.id, u.name, u.last_name, e.email from users as u left outer join email as e on u.id=e.user_id;
+select u.id, u.name, u.last_name, e.email from users as u right outer join email as e on u.id=e.user_id;
+select u.id, u.name, u.last_name, e.email from users as u full outer join email as e on u.id=e.user_id;
+insert into orders(user_id,address) values(1,'London,Bakers St.');
+insert into orders(user_id,address) values(3,'Venice, St Beauty25.');
+insert into orders(user_id,address) values(3,'Venice, St Beauty25.');
+insert into orders(user_id,address) values(4,'USA, MI,Green 567 St.');
+select o.id, o.address, u.name, u.last_name from orders as o inner join users as u on o.user_id=u.id;
+select u.name, u.last_name, e.email, o.address from users as u inner join email as e on user_id=u.id inner join orders as o on o.user_id=u.id;
+select u.name, u.last_name, e.email, o.address from users as u full join email as e on user_id=u.id full join orders as o on o.user_id=u.id;
+insert into product(title,price,quantity) values ('Samsung',40000,15);
+insert into product(title,price,quantity) values ('Ipone 11pro',60000,5);
+insert into product(title,price,quantity) values ('ASUS',50000,27);
+insert into product(title,price,quantity) values ('MacBook Pro',10000,2);
+selec * from product;
+select * from product;
+insert into order_product(product_id,order_id) values(2,1);
+insert into order_product(product_id,order_id) values(4,1);
+insert into order_product(product_id,order_id) values(4,2);
+insert into order_product(product_id,order_id) values(1,4);
+insert into order_product(product_id,order_id) values(3,4);
+selec * from order_product;
+select * from order_product;
+select p.title, o.address, from order_product as op inner join productas p on op.product_id=p.id inner join orders as o on o.id=op.order_id;
+select p.title, o.address from order_product as op inner join productas p on op.product_id=p.id inner join orders as o on o.id=op.order_id;
+select p.title, o.address from order_product as op inner join product p on op.product_id=p.id inner join orders as o on o.id=op.order_id;
+select u.name,u.last_name, p.title,o.address from order_product as op inner join product as p on op.product_id=p.id inner join orders as o on op.order_id=o.id inner join users as u on o.user_id=u.id;
+select u.name,e.email,p.title,o.address,o.id from order_product as op inner join product as p on op.product_id=p.id inner join orders as o on op.product_id=o.id  inner join users as u on o.user_id=u.id inner join email as e on u.id=e.user_id;
+select u.name,e.email,p.title,o.address,o.id from order_product as op full join product as p on op.product_id=p.id full join orders as o on op.product_id=o.id  full join users as u on o.user_id=u.id full join email as e on u.id=e.user_id;
+select * from product;
+select title,price,case when price >40000 then 'too much' else 'ok' end from product;
+select title,price,case when price >40000 then 'too much' else 'ok' end affordability from product;
+select title ,price,quantity ,case when quatity=0 then 'out of stock' when quantity between 5 and 10 then 'hurry up!!' else 'in stock' end stock from product;
+select title ,price,quantity ,case when quantity=0 then 'out of stock' when quantity between 5 and 10 then 'hurry up!!' else 'in stock' end stock from product;
+select title ,price,quantity ,case when quantity=0 then 'out of stock' when quantity between 1 and 10 then 'hurry up!!' else 'in stock' end stock from product;
+\l
+create database my_db_postgres;
+\l
+\c my_db_postgres ;
+create table students(
+id serial primary key,
+name varchar (50),
+last_name varchar (65),
+faculty varchar(50),
+year int);
+\d
+\d students
+insert into students (name,last_name,faculty,year) values ('John','Snow','IT',2),('Sandra','Black','Business',3),('James','Collins','IT',1),('Tailor','Baker','Medicine',1),('Emily','Johns','Business'1);
+insert into students (name,last_name,faculty,year) values ('John','Snow','IT',2),('Sandra','Black','Business',3),('James','Collins','IT',1),('Tailor','Baker','Medicine',1),('Emily','Johns','Business',1);
+select * from students;
+select * from students where id=4;
+create index student_id_index on students(id);
+\d students;
+select * from students where id=3;
+create index faculty_index on stundets(faculty);
+create index faculty_index on stundets(faculty);
+\d students
+\d students;
+create index faculty_index on stundets(faculty);
+create index faculty_index on students(faculty);
+\d students;
+drop index student_id_index;
+\d students;
+drop table students;
+\dt
+\dt ;
+create table faculty(
+id serial primary key,
+title varchar(50),
+);
+create table faculty(
+id serial primary key,
+title varchar(50)
+);
+create table(
+);
+create table students(
+);
+drop table stundents;
+drop table students;
+create table students(
+id serial primary key,
+name varchar(50),
+last_name varchar(60),
+faculty_id int not null,
+constraint fk_student_faculty foreign key (faculty_id) references faculty(id);
+);
+create table students(
+id serial primary key,
+name varchar(50),
+last_name varchar(60),
+faculty_id int not null,
+constraint fk_student_faculty foreign key (faculty_id) references faculty(id)
+);
+\d students;
+insert into faculty (title) values('Medicine'),('IT'),('Business'),('Psycology');
+select * from faculty;
+insert into students (name,last_name,faculty_id) values ('John','Snow',3),('Alice','Pumpkin',1),('Chris','White',4),('Emily','Baker',2),('Bob','Smith',2),('Emily','Justice'4);
+insert into students (name,last_name,faculty_id) values ('John','Snow',3),('Alice','Pumpkin',1),('Chris','White',4),('Emily','Baker',2),('Bob','Smith',2),('Emily','Justice',4);
+select  s.name,s.last_name,f.title from students as s inner join faculty as f on s.faculty_id=f.id;
+create index student_faculty_index on students(faculty_id);
+\d students;
+select * from students where faculty_id=4;
+insert into faculty (title)values ('Economics');
+insert into students (name,last_name) values('Tom','Muler')'
+;
+);
+');
+insert into students (name,last_name) values('Tom','Muler');
+alter table students alter column faculty_id drop not null;
+insert into students (name,last_name) values('Tom','Muler');
+select s.name,s.last_name , f.title from students as s inner join faculty as f on s.faculty_id=f.id;
+select s.name,s.last_name , f.title from students as s left join faculty as f on s.faculty_id=f.id;
+select s.name,s.last_name , f.title from students as s right join faculty as f on s.faculty_id=f.id;
+select s.name,s.last_name , f.title from students as s full join faculty as f on s.faculty_id=f.id;
+create database shakespeare;
+\l
+\c shakespeare;
+\dt
+select * from chapter;
+\dt
+select title,totalwords from work;
+select title,totalwords from work where totalwords >20000;
+select avg(totalwords) from work ;
+select title,totalwords from work where totalwords >select avg(totalwords) from work ;
+select title,totalwords from work where totalwords > select avg(totalwords) from work;
+select title,totalwords from work where totalwords > (select avg(totalwords) from work);
+select ch.charname,w.title,w.genretype from character_work as ch_w inner join character as ch ch.charid=ch_w.charid inner join work as w on w.workid=ch_w.workid;
+select ch.charname,w.title,w.genretype from character_work as ch_w inner join character as on ch ch.charid=ch_w.charid inner join work as w on w.workid=ch_w.workid;
+select ch.charname,w.title,w.genretype from character_work as ch_w inner join character as  ch on ch.charid=ch_w.charid inner join work as w on w.workid=ch_w.workid;
+select distinct genretype from work;
+select ch.charname,w.title,w.genretype from character_work as ch_w inner join character as  ch on ch.charid=ch_w.charid inner join work as w on w.workid=ch_w.workid where w.genretype='c';
+select * from wordform;
+select occurences from wordform fetch first 10 row;
+select occurences from wordform fetch first 10 row();
+select occurences from wordform fetch first 10 row word;
+select occurences from wordform fetch first 10 row uccurences;
+select occurences from wordform fetch first 10 row occurences;
+select occurences from wordform fetch first 10 row occerances;
+select occurences from wordform fetch first 10 row in occerances;
+select occurences from wordform fetch first 10 row  occerances;
+select occurences from wordform fetch first 10 row  occurances;
+select occurences from wordform fetch first 10 row  occurences;
+select occurences from wordform fetch first 10 row  occurences;
+\h fetch
+select occurences from wordform fetch first 10 limit;
+select occurences from wordform fetch first 10 limit;
+\h limited
+select occurences from wordform 10 limit;
+select occurences from wordform  limit 10;
+select occurences from wordform  fetch first (10) row only;
+select * from stemtext'
+;
+';
+select * from stemtext;
+select  stemtext from wordform;
+select  stemtext from wordform where ilike 'a%';
+select  stemtext from wordform  ilike 'a%';
+\dt
+select* from character;
+\d character;
+select * from character where charid='rameo'
+;
+select * from character where charname='Romeo'
+;
+\timing
+select * from character where charid='romeo'
+;
+select * from character where charid='romeo'
+;
+select * from character where charid='romeo'
+;
+select * from character where charid='romeo'
+;
+select * from character where charid='romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+select * from character where charname='Romeo'
+;
+\c shakespeare
+explain select * from character where charname='Romeo';
+\timing
+explain select * from character where charname='Romeo';
+explain select * from character where charid='Romeo';
+select * from work;
+select source , totalparagraphs, title from work where source ='Moby' and totalparagraphs <100;
+select title ,totalparagraphs from work;
+select genretype count(*) from work group by genretype;
+select genretype, count(*) from work group by genretype;
+select totalwords , totalparagraphs,title from work;
+select round(avg(totalwords),2) round (avg(totalparagraphs),2) from work;
+select round(avg(totalwords),2) round(avg(totalparagraphs),2) from work;
+select round(avg(totalwords),2), round(avg(totalparagraphs),2) from work;
+select round(avg(totalwords),2) as avg_words, round(avg(totalparagraphs),2)as avg_p from work;
+select w.title,count(chapter.chapterid) from work as w inner join chapter as ch on work.workid=ch.workid group by w.title;
+select w.title,count(chapter.chapterid) from work as w inner join chapter as ch on work.workid=ch.workid group by work.title;
+select w.title,count(chapter.chapterid) from work as w inner join chapter as ch on work.workid=ch.workid group by work.title;
+SELECT work.title, COUNT(chapter.chapterid) FROM work
+INNER JOIN chapter ON work.workid=chapter.workid GROUP BY work.title;
+select *from character where speechcount>200; 
+select year from work ;
+select charname,count(title) from character c inner join character_work as c_w on c_w.charid=c.charid inner join work as w on w.workid=c_w.workid where speechcount >200 order by year desc; 
+select c.charname count(title) as counts from work as w inner join character_work as cw on w.workid=cw.workid inner join character as c on cw.charid=c.charid group by c.charname order by counts desc fetch first 2 row only;
+select c.charname, count(title) as counts from work as w inner join character_work as cw on w.workid=cw.workid inner join character as c on cw.charid=c.charid group by c.charname order by counts desc fetch first 2 row only;
+\c shakespeare;
+select paragraphnum from paragraph;
+select charcount from paragraph;
+select charcount from paragraph asc;
+select paragraphid from paragraph ;
+select paragraphnum;
+select title from work;
+select title ,year p.paragraphnum from work as w inner join paragraph as p on w.workid=p.workid;
+select title ,year ,p.paragraphnum from work as w inner join paragraph as p on w.workid=p.workid;
+select title ,year ,p.paragraphnum from work as w inner join paragraph as p on w.workid=p.workid;
+select charname,speechcount,p.paragraphnum from character as ch inner join paragraph as p on ch.charid=p.charid;
+select description from chapter;
+select chapterid from chapter;
+select chapterid ,chapter from chapter;
+select chapterid ,chapter ,description from chapter;
+select chapterid ,chapter ,description , w.title from chapter inner join work as w on w.workid=chapter.workid;
+select w.title ,chapterid ,chapter ,description from chapter inner join work as w on w.workid=chapter.workid gtoup by section;
+select w.title ,chapterid ,chapter ,description from chapter inner join work as w on w.workid=chapter.workid group by section;
+select title ,chapterid ,chapter ,description from chapter inner join work as w on w.workid=chapter.workid group by section;
+select w.title ,chapterid ,chapter ,description from chapter inner join work as w on w.workid=chapter.workid;
+\l
+create database db_practice;
+\c db_practice
+\dt
+select * from company
+;
+\c db_practice 
+select * from db_practice;
+select * from company;
+\c db_practice 
+select * from company;
+\c db_practice ;
+drop table company;
+\dt
+\c db_practice ;
+\dt
+select * from students;
+select * from students;
+\dt
+drop table company,students;
+\dt
+\dt
+\c db_practice ;
+SELECT * FROM COMPANY;
+drop table company ;
+select * from company;
+create database deputy_db;
+create database pyshop_db;
+\q
+pg_dump db_pyshop_db>mydb.sql
+exit
+\q
+create database cooking_blog_db;
+create database blog_api_db;
+\l
+creata database blog_api_db:
+create database blog_api_db;
+create database blog_api_db;
+create database blog_live_db;
+\c blog_live_db;
+\dt
+select * from main_rating;
+\q
+\l
+\c blog_live_db 
+\dt
+\dt
+select * from main_rating
+;
+select * from main_ratingstar;
+select * from main_category;
+\q
+\c blog_live_db 
+\c postgres 
+drop database blog_live_db ;
+drop database blog_live_db ;
+\q
+drop database blog_live_db 
+;
+\q
+drop database blog_live_db ;
+create database blog_live_db ;
+\q
+\c blog_live_db ;
+\dt
+\q
+\c blog_live_db ;
+\dt
+select * from main_rating;
+\q
+drop database blog_live_db ;
+\q
+drop database blog_live_db ;
+\s blog_l

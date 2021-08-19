@@ -2,3 +2,6 @@ Django==3.2.6
 psycopg2-binary==2.8.5
 Pillow==7.1
 djangorestframework==3.11
+python-decouple==3.4
+djangorestframework_simplejwt==4.7.2
+drf-yasg

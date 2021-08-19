@@ -6,7 +6,9 @@ from django.db.models import Q
 from django.utils import timezone
 from rest_framework.decorators import api_view,action
 # from rest_framework.response import Response
-# from rest_framework.views import APIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from rest_framework.mixins import CreateModelMixin, DestroyModelMixin, ListModelMixin, RetrieveModelMixin
+from rest_framework.views import APIView
 from rest_framework import generics, status
 # from .models import Category, Post
 # from .serializers import CategorySerializer, PostSerializer
@@ -53,22 +55,33 @@ from rest_framework import generics, status
 #     queryset = Post.objects.all()
 #     serializer_class = PostSerializer
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
-from .permissions import IsPostAuthor
-from main.models import Category, Post, PostImage
-from main.serializers import CategorySerializer, PostSerializer, PostImageSerializer
+from rest_framework.viewsets import ModelViewSet, GenericViewSet
+
+from .models import Favorites
+from .permissions import IsPostAuthor, IsOwnerOrReadOnly
+
 from rest_framework import viewsets
+from .serializers import *
+
+
+class PaginationClassFive(PageNumberPagination):
+    page_size = 5
+
+
+class PaginationClassTen(PageNumberPagination):
+    page_size = 10
 
 
 class MyPaginationClass(PageNumberPagination):
     page_size = 3
 
-    def get_paginated_response(self, data):
-        for i in range(self.page_size):
-            text = data[i]['text']
-            data[i]['text'] = text[:15] + '...'
-        return super().get_paginated_response(data)
+    # def get_paginated_response(self, data):
+    #     for i in range(self.page_size):
+    #         text = data[i]['text']
+    #         data[i]['text'] = text[:15] + '...'
+    #     return super().get_paginated_response(data)
 
 
 class CategoryListView(generics.ListAPIView):
@@ -128,5 +141,59 @@ class PostImageView(generics.ListCreateAPIView):
         return {'request': self.request}
 
 
+class CommentViewSet(PostViewSet, ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
 
 
+class AddStarRatingView(ModelViewSet):
+    queryset = Rating.objects.all()
+    serializer_class = RatingSerializer
+
+    def filter_queryset(self, queryset):
+        queryset = super().filter_queryset(queryset)
+        return queryset.order_by('author')
+
+    def get_permissions(self):
+        if self.action in ['update', 'partial_update', 'destroy']:
+            permissions = [IsPostAuthor]
+        elif self.action in ['create']:
+            permissions = [IsAuthenticated]
+        else:
+            permissions = [IsAdminUser]
+        return [permission() for permission in permissions]
+
+
+class LikeViewSet(ModelViewSet):
+    queryset = Like.objects.all()
+    serializer_class = LikeSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
+
+    pagination_class = PaginationClassTen
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['action'] = self.action
+        return context
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+class FavoritesViewSet(ListModelMixin, CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, GenericViewSet):
+
+    queryset = Favorites.objects.all()
+    serializer_class = FavoritesSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
+
+    pagination_class = PaginationClassFive
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['action'] = self.action
+        return context
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)

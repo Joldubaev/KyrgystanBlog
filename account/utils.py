@@ -1,7 +1,7 @@
 from django.core.mail import send_mail
 
 
-def send_activation_code(eamil, activation_code):
+def send_activation_code(email, activation_code):
     activation_url = f"http://localhost:8000/v1/api/account/activate/{activation_code}"
     message = f"""
         Thank you singing up 
@@ -12,6 +12,6 @@ def send_activation_code(eamil, activation_code):
         'Activate your account',
         message,
         'test@test.com',
-        [eamil, ],
+        [email, ],
         fail_silently=False
     )
